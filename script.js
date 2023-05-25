@@ -54,17 +54,29 @@ console.log (estudiantes.apellido)
 
 
 
-
-
-
-
-
-
 const arrayNotas =[
   8,9,3 
 ]
 let promedio=(arrayNotas[0] + arrayNotas[1]+ arrayNotas[2])/3
 console.log(promedio)
 
+//metodo de busqueda o filtrado de array
+const productos=[
+  {nombre:"shampo", precio:"3pesos"},
+  {nombre:"maquina", precio:"10pesos"},
+  {nombre:"tijera", precio:"5pesos"},
+  {nombre:"peine", precio:"2pesos"},
+]
 
 
+function porCadaElementos(array,func){
+  for (elem of array){
+    func(elem)
+  }
+}
+
+function mostrarNombre(productos){
+  alert(productos.nombre)
+}
+
+porCadaElementos(productos,mostrarNombre);
