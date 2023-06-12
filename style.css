@@ -1,0 +1,23 @@
+#horarios-lista {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #horarios-lista li {
+    display: column;
+    margin-right: 10px;
+    background-color: #fdfdfd;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+  }
+  
+  #horarios-lista li:hover {
+    background-color: #6bd87b;
+  }
+
+  .reservado {
+    background-color: #aaf;
+    font-size: 30px;
+  }
+ 

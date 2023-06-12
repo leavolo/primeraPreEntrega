@@ -1,82 +1,62 @@
+let titulo=document.getElementById("tituloPrincipal")
+titulo.innerHTML=`<h1> bienvenidos  il-volobarber </h1>
+<h3> reserva de turnos </h3>`
 
-// Definimos la cantidad máxima de turnos disponibles
-const MAX_TURNOS_DISPONIBLES = 5;
+const newLocal = "lunes 9:00 am";
+let horariosDisponibles = [
+  "09:00 am",
+  "10:00am",
+  " 11:00am",
+  " 12:00am",
+  " 13:00pm",
+  " 14:00pm",
+  " 15:00pm",
+  " 16:00pm",
+  "17:00pm",
+  "18:00 pm",
+  "19:00pm",
+  "20:00pm"
+];
 
-// Función para reservar un turno
-function reservarTurno() {
-  // Pedimos al usuario que ingrese el número de turno que desea reservar
-  const numeroTurno = prompt(`Quedan ${MAX_TURNOS_DISPONIBLES} turnos disponibles. Ingrese el número de turno que desea reservar:\n1\n 2\n 3\n 4\n 5\n`);
+let listaHorarios = document.getElementById("horarios-lista");
 
-  // Verificamos si el número de turno es válido (es decir, está entre 1 y la cantidad máxima de turnos disponibles)
-  if (numeroTurno >= 1 && numeroTurno <= MAX_TURNOS_DISPONIBLES) {
-    // Mostramos un mensaje de confirmación de reserva
-    alert(`Perfecto, ${nombreUsuario}. Ha reservado el turno número ${numeroTurno}. ¡Nos vemos pronto!`);
+horariosDisponibles.forEach(function(horario) {
+  let li = document.createElement("li");
+  li.textContent = horario;
+  listaHorarios.appendChild(li);
 
-    // Reducimos la cantidad de turnos disponibles
-    MAX_TURNOS_DISPONIBLES;
-  } else {
-    // Si el número de turno no es válido, mostramos un mensaje de error y volvemos a llamar a la función
-    alert(`El número de turno ingresado no es válido. Por favor, ingrese un número entre 1 y ${MAX_TURNOS_DISPONIBLES}.`);
-    reservarTurno();
-  }
-}
+  li.addEventListener("click", function() {
+    let cartel = document.createElement("div");
+    cartel.textContent = "Completa los datos de reserva:";
 
-// Pedimos el nombre del usuario
-const nombreUsuario = prompt("Ingrese su nombre:");
+    let inputNombre = document.createElement("input");
+    inputNombre.placeholder = "Nombre y apellido";
+    let inputTelefono = document.createElement("input");
+    inputTelefono.placeholder = "Teléfono";
 
-// Mostramos un mensaje de bienvenida
-alert(`¡Bienvenido ${nombreUsuario} a nuestro sistema de reserva de turnos!`);
+    let botonReservar = document.createElement("button");
+    botonReservar.textContent = "Finalizar reserva";
+    botonReservar.addEventListener("click", function() {
+      let nombre = inputNombre.value;
+      let telefono = inputTelefono.value;
 
-// Ejecutamos la función para reservar un turno
-reservarTurno();
+      // Guardar los datos en el localStorage
+      localStorage.setItem("nombre y apellido", nombre);
+      localStorage.setItem("telefono", telefono);
 
-// Si no hay más turnos disponibles, mostramos un mensaje de error
-if (MAX_TURNOS_DISPONIBLES === 0) {
-  alert(`Lo sentimos, ${nombreUsuario}. Ya no quedan turnos disponibles.`)
-  
-};
+      // Agregar el nombre al elemento de la lista
+      li.textContent = horario + " - " + nombre;
+      li.classList.add("reservado");
 
+      cartel.style.display = "none";
+    });
 
-const herramientas= ["maquina","tijera","peine"]
-console.log (herramientas)
+    cartel.appendChild(inputNombre);
+    cartel.appendChild(inputTelefono);
+    cartel.appendChild(botonReservar);
 
-herramientas.push("cepillo")
-console.log(herramientas);
-
-
-
-const estudiantes={
-  nombre:"lea",
-  apellido:"volo",
-  comision:"10"
-}
-console.log (estudiantes.apellido)
-
-
-
-const arrayNotas =[
-  8,9,3 
-]
-let promedio=(arrayNotas[0] + arrayNotas[1]+ arrayNotas[2])/3
-console.log(promedio)
-
-//metodo de busqueda o filtrado de array
-const productos=[
-  {nombre:"shampo", precio:"3pesos"},
-  {nombre:"maquina", precio:"10pesos"},
-  {nombre:"tijera", precio:"5pesos"},
-  {nombre:"peine", precio:"2pesos"},
-]
+    document.body.appendChild(cartel);
+  });
+});
 
 
-function porCadaElementos(array,func){
-  for (elem of array){
-    func(elem)
-  }
-}
-
-function mostrarNombre(productos){
-  alert(productos.nombre)
-}
-
-porCadaElementos(productos,mostrarNombre);
