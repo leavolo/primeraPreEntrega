@@ -1,28 +1,26 @@
-[
-  {
+  [  {
       "dia": "Lunes",
       "horario": "09:00 am"
-  },
-  {
-      "dia": "Lunes",
-      "horario":"10:00am"
-  }
-  ][
-    {
-        "dia": "Lunes",
-        "horario": "11:00 am"
     },
     {
-        "dia": "Lunes",
-        "horario":"12:00am"
+      "dia": "Lunes",
+      "horario": "10:00am"
+    },
+    {
+      "dia": "Lunes",
+      "horario": "11:00 am"
+    },
+    {
+      "dia": "Lunes",
+      "horario": "12:00am"
+    },
+    {
+      "dia": "Lunes",
+      "horario": "13:00 am"
+    },
+    {
+      "dia": "Lunes",
+      "horario": "14:00am"
     }
-    ][
-      {
-          "dia": "Lunes",
-          "horario": "13:00 am"
-      },
-      {
-          "dia": "Lunes",
-          "horario":"14:00am"
-      }
-      ]
+  ]
+    
