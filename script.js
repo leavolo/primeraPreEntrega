@@ -48,7 +48,7 @@ fetch("./horarios.json")
           localStorage.setItem("telefono", telefono);
 
           // Agregar el nombre al elemento de la lista
-          li.textContent = horario + " - " + nombre;
+          li.textContent = item.horario + " - " + nombre;
           li.classList.add("reservado");
 
           cartel.style.display = "none";
